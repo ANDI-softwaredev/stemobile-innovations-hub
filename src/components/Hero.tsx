@@ -28,7 +28,7 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10 pt-20">
+      <div className="container mx-auto px-4 relative z-10 pt-32 md:pt-40">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-up-delay-1">
