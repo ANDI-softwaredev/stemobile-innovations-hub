@@ -30,14 +30,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10 pt-20">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 rounded-full px-4 py-2 mb-8 animate-fade-up">
-            <Sparkles className="w-4 h-4 text-secondary" />
-            <span className="text-primary-foreground text-sm font-medium">
-              Transforming STEM Education in Zimbabwe
-            </span>
-          </div>
-
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-up-delay-1">
             Empowering Future{" "}
