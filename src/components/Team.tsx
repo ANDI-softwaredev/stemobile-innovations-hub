@@ -1,4 +1,5 @@
 import { Linkedin, Mail } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const team = [
   {
@@ -48,7 +49,7 @@ const Team = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-4 py-2 mb-6">
             <span className="text-foreground text-sm font-medium">Meet Our Team</span>
           </div>
@@ -60,52 +61,55 @@ const Team = () => {
             A dedicated team of innovators committed to transforming 
             STEM education across Zimbabwe.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Team Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {team.map((member, index) => (
-            <div
+            <ScrollReveal 
               key={member.name}
-              className="group bg-card rounded-3xl p-6 border border-border hover:border-secondary/50 hover:shadow-2xl transition-all duration-500 text-center"
+              delay={index * 100}
+              animation="fade-up"
             >
-              {/* Avatar */}
-              <div className="relative w-32 h-32 mx-auto mb-6">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary to-primary rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover rounded-full border-4 border-card group-hover:border-secondary transition-colors"
-                />
-              </div>
+              <div className="group bg-card rounded-3xl p-6 border border-border hover:border-secondary/50 hover:shadow-2xl transition-all duration-500 text-center h-full">
+                {/* Avatar */}
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary to-primary rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover rounded-full border-4 border-card group-hover:border-secondary transition-colors"
+                  />
+                </div>
 
-              {/* Info */}
-              <h3 className="text-xl font-bold text-foreground mb-1">
-                {member.name}
-              </h3>
-              <p className="text-secondary font-semibold text-sm mb-4">
-                {member.role}
-              </p>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                {member.bio}
-              </p>
+                {/* Info */}
+                <h3 className="text-xl font-bold text-foreground mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-secondary font-semibold text-sm mb-4">
+                  {member.role}
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  {member.bio}
+                </p>
 
-              {/* Social Links */}
-              <div className="flex justify-center gap-3">
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-all"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-all"
-                >
-                  <Mail className="w-5 h-5" />
-                </a>
+                {/* Social Links */}
+                <div className="flex justify-center gap-3">
+                  <a
+                    href="#"
+                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-all"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-all"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

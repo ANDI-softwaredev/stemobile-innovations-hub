@@ -6,6 +6,7 @@ import {
   Users,
   ArrowRight
 } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const partnershipTypes = [
   {
@@ -39,7 +40,7 @@ const Partnership = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
             <Building className="w-4 h-4 text-primary" />
             <span className="text-foreground text-sm font-medium">Partnership Opportunities</span>
@@ -52,30 +53,29 @@ const Partnership = () => {
             Join forces with STEMobile Solutions to expand access to quality 
             STEM education across Zimbabwe.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Partnership Grid */}
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
-          {partnershipTypes.map((type) => (
-            <div
-              key={type.title}
-              className="group bg-card rounded-2xl p-8 border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                <type.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+          {partnershipTypes.map((type, index) => (
+            <ScrollReveal key={type.title} delay={index * 100} animation="scale">
+              <div className="group bg-card rounded-2xl p-8 border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                  <type.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {type.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {type.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">
-                {type.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {type.description}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <ScrollReveal className="flex flex-wrap justify-center gap-4" delay={400}>
           <Button variant="default" size="lg">
             Partner With Us
             <ArrowRight className="w-5 h-5" />
@@ -83,7 +83,7 @@ const Partnership = () => {
           <Button variant="outline" size="lg">
             Request a Proposal
           </Button>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

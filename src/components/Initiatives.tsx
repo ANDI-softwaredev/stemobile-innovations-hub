@@ -10,6 +10,7 @@ import {
   Wrench, 
   Rocket 
 } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const initiatives = [
   {
@@ -78,7 +79,7 @@ const Initiatives = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
             <Rocket className="w-4 h-4 text-primary" />
             <span className="text-foreground text-sm font-medium">Additional Initiatives</span>
@@ -91,28 +92,31 @@ const Initiatives = () => {
             Beyond our core programs, we run various initiatives to ensure 
             comprehensive STEM education reaches every corner of Zimbabwe.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Initiatives Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
           {initiatives.map((initiative, index) => (
-            <div
+            <ScrollReveal 
               key={initiative.title}
-              className="group bg-card rounded-2xl p-6 border border-border hover:border-secondary/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
+              delay={index * 50}
+              animation="scale"
             >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
-                <initiative.icon className="w-6 h-6 text-secondary group-hover:text-secondary-foreground transition-colors" />
-              </div>
+              <div className="group bg-card rounded-2xl p-6 border border-border hover:border-secondary/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                  <initiative.icon className="w-6 h-6 text-secondary group-hover:text-secondary-foreground transition-colors" />
+                </div>
 
-              {/* Content */}
-              <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
-                {initiative.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {initiative.description}
-              </p>
-            </div>
+                {/* Content */}
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-secondary transition-colors">
+                  {initiative.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {initiative.description}
+                </p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

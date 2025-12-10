@@ -24,9 +24,14 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">S</span>
             </div>
-            <span className="font-bold text-lg md:text-xl text-foreground">
-              STEM<span className="text-secondary">obile</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="font-bold text-lg md:text-xl text-foreground leading-tight">
+                STEM<span className="text-secondary">obile</span>
+              </span>
+              <span className="text-[10px] text-muted-foreground leading-tight hidden sm:block">
+                Transforming STEM Education in Zimbabwe
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
