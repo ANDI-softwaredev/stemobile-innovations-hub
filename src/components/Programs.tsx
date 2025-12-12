@@ -1,52 +1,8 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
-  Microscope, 
-  Truck, 
-  Glasses, 
-  Code, 
-  ArrowRight,
-  Zap
-} from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-
-const programs = [
-  {
-    icon: Microscope,
-    title: "Young Einstein's Hub",
-    subtitle: "Container Lab",
-    description: "Solar-powered science labs built inside refurbished shipping containers, bringing high-quality STEM education to rural schools. Each lab accommodates up to 15 students with full science experiment kits, robotics tools, and digital learning devices.",
-    features: ["15 Students Per Session", "Solar Powered", "Full Equipment"],
-    color: "from-blue-500 to-cyan-500",
-    bgGlow: "bg-blue-500/20",
-  },
-  {
-    icon: Truck,
-    title: "Mini STEM Mobile Lab",
-    subtitle: "Portable Learning",
-    description: "A compact, vehicle-mounted lab carrying essential STEM tools including microscopes, science kits, robotics sets, tablets, and coding equipment. Perfect for reaching the most remote schools and community centers.",
-    features: ["Fully Portable", "Complete STEM Kit", "Classroom Setup"],
-    color: "from-green-500 to-emerald-500",
-    bgGlow: "bg-green-500/20",
-  },
-  {
-    icon: Glasses,
-    title: "Virtual Reality Lab",
-    subtitle: "Immersive Learning",
-    description: "Experience science through VR headsets and digital simulations. Explore space, dive into cells, conduct safe chemical experiments, and walk through 3D engineering workshops—all without physical risk or expensive materials.",
-    features: ["Safe Experiments", "3D Environments", "Interactive Lessons"],
-    color: "from-purple-500 to-pink-500",
-    bgGlow: "bg-purple-500/20",
-  },
-  {
-    icon: Code,
-    title: "Coding & Robotics",
-    subtitle: "Future Skills",
-    description: "Hands-on programs teaching practical problem-solving and creativity through programming and robotics. Students build, program, and experiment with real robots and digital tools to prepare for the Fourth Industrial Revolution.",
-    features: ["Real Robots", "Digital Tools", "Bootcamps"],
-    color: "from-orange-500 to-yellow-500",
-    bgGlow: "bg-orange-500/20",
-  },
-];
+import { programs } from "@/data/programs";
 
 const Programs = () => {
   return (
@@ -117,10 +73,12 @@ const Programs = () => {
                   </div>
 
                   {/* CTA */}
-                  <Button variant="ghost" className="group/btn p-0 h-auto text-secondary hover:text-secondary/80">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link to={`/programs/${program.id}`}>
+                    <Button variant="ghost" className="group/btn p-0 h-auto text-secondary hover:text-secondary/80">
+                      Learn More & Book
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>
@@ -129,10 +87,12 @@ const Programs = () => {
 
         {/* CTA Section */}
         <ScrollReveal className="text-center mt-16" delay={400}>
-          <Button variant="secondary" size="lg">
-            Book a School Program
-            <ArrowRight className="w-5 h-5" />
-          </Button>
+          <Link to="/programs/container-lab">
+            <Button variant="secondary" size="lg">
+              Book a School Program
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+          </Link>
         </ScrollReveal>
       </div>
     </section>
