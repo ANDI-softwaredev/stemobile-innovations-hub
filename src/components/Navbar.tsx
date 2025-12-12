@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import stemobileLogo from "@/assets/stemobile-logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,13 +21,15 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">S</span>
-            </div>
+          <Link to="/" className="flex items-center gap-3">
+            <img 
+              src={stemobileLogo} 
+              alt="STEMobile Solutions Logo" 
+              className="w-12 h-12 md:w-14 md:h-14"
+            />
             <div className="flex flex-col">
               <span className="font-bold text-lg md:text-xl text-foreground leading-tight">
-                STEM<span className="text-secondary">obile</span>
+                STEM<span className="text-accent">obile</span>
               </span>
               <span className="text-[10px] text-muted-foreground leading-tight hidden sm:block">
                 Transforming STEM Education in Zimbabwe

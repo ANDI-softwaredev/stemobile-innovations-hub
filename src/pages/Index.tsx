@@ -10,6 +10,7 @@ import Partnership from "@/components/Partnership";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <ScrollToTop />
     </div>
   );
 };
