@@ -1,4 +1,4 @@
-PREVIEW IS AVAILABLE ON stemobile.netlify.app
+ <a href="stemobile.netlify.app"> PREVIEW IS AVAILABLE HERE </a>
 
 If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
