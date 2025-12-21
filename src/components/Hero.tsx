@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import heroStudents from "@/assets/hero-students.jpg";
@@ -46,13 +47,17 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-16 animate-fade-up-delay-3">
-            <Button variant="hero" size="xl">
-              Register as an Innovator
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="hero-outline" size="xl">
-              Book a School Program
-            </Button>
+            <Link to="/register-innovator">
+              <Button variant="hero" size="xl">
+                Register as an Innovator
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/#programs">
+              <Button variant="hero-outline" size="xl">
+                Book a School Program
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
