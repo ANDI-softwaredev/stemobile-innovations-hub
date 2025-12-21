@@ -22,10 +22,11 @@ import {
 } from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon, Send, CheckCircle } from "lucide-react";
+import { CalendarIcon, Send, CheckCircle, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const bookingSchema = z.object({
   schoolName: z.string().trim().min(2, "School name is required").max(100),
@@ -46,6 +47,7 @@ interface BookingFormProps {
 
 const BookingForm = ({ programTitle }: BookingFormProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<BookingFormValues>({
@@ -61,13 +63,39 @@ const BookingForm = ({ programTitle }: BookingFormProps) => {
     },
   });
 
-  const onSubmit = (data: BookingFormValues) => {
-    console.log("Booking submitted:", { program: programTitle, ...data });
-    setIsSubmitted(true);
-    toast({
-      title: "Booking Request Submitted!",
-      description: "We'll contact you within 48 hours to confirm your booking.",
-    });
+  const onSubmit = async (data: BookingFormValues) => {
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.from("school_bookings").insert({
+        program_title: programTitle,
+        school_name: data.schoolName.trim(),
+        contact_person: data.contactPerson.trim(),
+        email: data.email.trim(),
+        phone: data.phone.trim(),
+        preferred_date: format(data.preferredDate, "yyyy-MM-dd"),
+        session_type: data.sessionType,
+        number_of_students: parseInt(data.numberOfStudents),
+        additional_info: data.additionalInfo?.trim() || null,
+      });
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      toast({
+        title: "Booking Request Submitted!",
+        description: "We'll contact you within 48 hours to confirm your booking.",
+      });
+    } catch (error) {
+      console.error("Error submitting booking:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit booking. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -252,9 +280,13 @@ const BookingForm = ({ programTitle }: BookingFormProps) => {
             )}
           />
 
-          <Button type="submit" className="w-full" size="lg">
-            <Send className="w-4 h-4 mr-2" />
-            Submit Booking Request
+          <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+            ) : (
+              <Send className="w-4 h-4 mr-2" />
+            )}
+            {isSubmitting ? "Submitting..." : "Submit Booking Request"}
           </Button>
         </form>
       </Form>
