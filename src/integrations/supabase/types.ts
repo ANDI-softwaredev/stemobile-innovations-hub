@@ -14,7 +14,129 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          organization: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          organization?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          organization?: string | null
+        }
+        Relationships: []
+      }
+      innovator_registrations: {
+        Row: {
+          age_range: string
+          created_at: string
+          email: string
+          full_name: string
+          how_did_you_hear: string | null
+          id: string
+          innovation_description: string
+          innovation_title: string
+          innovation_type: string
+          location: string
+          phone: string
+          stage: string
+          status: string
+          support_needed: string
+        }
+        Insert: {
+          age_range: string
+          created_at?: string
+          email: string
+          full_name: string
+          how_did_you_hear?: string | null
+          id?: string
+          innovation_description: string
+          innovation_title: string
+          innovation_type: string
+          location: string
+          phone: string
+          stage: string
+          status?: string
+          support_needed: string
+        }
+        Update: {
+          age_range?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          how_did_you_hear?: string | null
+          id?: string
+          innovation_description?: string
+          innovation_title?: string
+          innovation_type?: string
+          location?: string
+          phone?: string
+          stage?: string
+          status?: string
+          support_needed?: string
+        }
+        Relationships: []
+      }
+      school_bookings: {
+        Row: {
+          additional_info: string | null
+          contact_person: string
+          created_at: string
+          email: string
+          id: string
+          number_of_students: number
+          phone: string
+          preferred_date: string
+          program_title: string
+          school_name: string
+          session_type: string
+          status: string
+        }
+        Insert: {
+          additional_info?: string | null
+          contact_person: string
+          created_at?: string
+          email: string
+          id?: string
+          number_of_students: number
+          phone: string
+          preferred_date: string
+          program_title: string
+          school_name: string
+          session_type: string
+          status?: string
+        }
+        Update: {
+          additional_info?: string | null
+          contact_person?: string
+          created_at?: string
+          email?: string
+          id?: string
+          number_of_students?: number
+          phone?: string
+          preferred_date?: string
+          program_title?: string
+          school_name?: string
+          session_type?: string
+          status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
