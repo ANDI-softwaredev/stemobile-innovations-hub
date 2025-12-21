@@ -29,7 +29,7 @@ const Navbar = () => {
             />
             <div className="flex flex-col">
               <span className="font-bold text-lg md:text-xl text-foreground leading-tight">
-                STEM<span className="text-accent">obile</span>
+                STEM<span className="text-accent">OBILE><span>
               </span>
               <span className="text-[10px] text-muted-foreground leading-tight hidden sm:block">
                 Transforming STEM Education in Zimbabwe
