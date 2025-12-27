@@ -1,42 +1,49 @@
 import { Linkedin, Mail } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
+import makomboreroImg from "@/assets/team/makomborero-sivangani.jpg";
+import tinotendaImg from "@/assets/team/tinotenda-nyikadzino.jpg";
+import faithImg from "@/assets/team/faith-nyakusendwa.jpg";
+import angelaImg from "@/assets/team/angela-kalilombe.jpg";
+import thandekaImg from "@/assets/team/thandeka-chiramba.jpg";
+import tatendaImg from "@/assets/team/tatenda-mhokore.jpg";
+
 const team = [
   {
     name: "Makomborero Lawrence Sivangani",
     role: "Chief Executive Officer",
     bio: "Passionate young Zimbabwean entrepreneur and founder of STEMobile Solutions. Driven by a vision to bridge the STEM education gap in rural and underserved communities through transformative initiatives.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    image: makomboreroImg,
   },
   {
     name: "Tinotenda Nyikadzino",
     role: "Chief Operating Officer",
     bio: "Director driving transformative STEM education and innovation in Zimbabwe and beyond. Championing accessible, hands-on science learning through mobile Container Labs.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    image: tinotendaImg,
   },
   {
     name: "Ruzivorwashe Faith Nyakusendwa",
     role: "Chief Financial Officer",
     bio: "Leading financial strategy and sustainable growth for STEMobile Solutions, ensuring resources reach where they're needed most.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=face",
+    image: faithImg,
   },
   {
     name: "Angela Kalilombe",
     role: "Marketing Lead",
     bio: "Driving brand awareness and community engagement for STEMobile Solutions across Zimbabwe and beyond.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+    image: angelaImg,
   },
   {
     name: "Thandeka Chiramba",
     role: "Governance & Compliance",
     bio: "Ensuring organizational integrity and regulatory compliance while championing advocacy for STEM education access.",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=face",
+    image: thandekaImg,
   },
   {
     name: "Tatenda Mhokore",
     role: "Projects Development & Evaluation",
     bio: "Designing, implementing, and evaluating innovative STEM programs. Passionate about empowering youth with hands-on learning experiences.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face",
+    image: tatendaImg,
   },
 ];
 
