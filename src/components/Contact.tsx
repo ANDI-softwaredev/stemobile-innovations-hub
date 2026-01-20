@@ -38,6 +38,17 @@ const Contact = () => {
 
       if (error) throw error;
 
+      // Send email notification
+      await supabase.functions.invoke("send-form-notification", {
+        body: {
+          type: "contact",
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          organization: formData.organization.trim() || undefined,
+          message: formData.message.trim(),
+        },
+      });
+
       toast({
         title: "Message Sent!",
         description: "We'll get back to you as soon as possible.",

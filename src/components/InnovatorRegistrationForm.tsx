@@ -82,6 +82,24 @@ const InnovatorRegistrationForm = () => {
 
       if (error) throw error;
 
+      // Send email notification
+      await supabase.functions.invoke("send-form-notification", {
+        body: {
+          type: "innovator",
+          fullName: data.fullName.trim(),
+          email: data.email.trim(),
+          phone: data.phone.trim(),
+          ageRange: data.age,
+          location: data.location.trim(),
+          innovationTitle: data.innovationTitle.trim(),
+          innovationType: data.innovationType,
+          innovationDescription: data.innovationDescription.trim(),
+          stage: data.stage,
+          supportNeeded: data.supportNeeded,
+          howDidYouHear: data.howDidYouHear || undefined,
+        },
+      });
+
       toast({
         title: "Application Submitted!",
         description: "Thank you for registering. We'll review your application and get back to you soon.",
