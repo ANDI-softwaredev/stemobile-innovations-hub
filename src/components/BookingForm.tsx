@@ -67,19 +67,37 @@ const BookingForm = ({ programTitle }: BookingFormProps) => {
     setIsSubmitting(true);
 
     try {
+      const formattedDate = format(data.preferredDate, "yyyy-MM-dd");
+      
       const { error } = await supabase.from("school_bookings").insert({
         program_title: programTitle,
         school_name: data.schoolName.trim(),
         contact_person: data.contactPerson.trim(),
         email: data.email.trim(),
         phone: data.phone.trim(),
-        preferred_date: format(data.preferredDate, "yyyy-MM-dd"),
+        preferred_date: formattedDate,
         session_type: data.sessionType,
         number_of_students: parseInt(data.numberOfStudents),
         additional_info: data.additionalInfo?.trim() || null,
       });
 
       if (error) throw error;
+
+      // Send email notification
+      await supabase.functions.invoke("send-form-notification", {
+        body: {
+          type: "booking",
+          schoolName: data.schoolName.trim(),
+          contactPerson: data.contactPerson.trim(),
+          email: data.email.trim(),
+          phone: data.phone.trim(),
+          programTitle: programTitle,
+          preferredDate: formattedDate,
+          numberOfStudents: parseInt(data.numberOfStudents),
+          sessionType: data.sessionType,
+          additionalInfo: data.additionalInfo?.trim() || undefined,
+        },
+      });
 
       setIsSubmitted(true);
       toast({
