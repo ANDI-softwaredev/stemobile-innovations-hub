@@ -27,24 +27,9 @@ const team = [
     bio: "Leading financial strategy and sustainable growth for STEMobile Solutions, ensuring resources reach where they're needed most.",
     image: faithImg,
   },
-  {
-    name: "Angela Kalilombe",
-    role: "Marketing Lead",
-    bio: "Driving brand awareness and community engagement for STEMobile Solutions across Zimbabwe and beyond.",
-    image: angelaImg,
-  },
-  {
-    name: "Thandeka Chiramba",
-    role: "Governance & Compliance",
-    bio: "Ensuring organizational integrity and regulatory compliance while championing advocacy for STEM education access.",
-    image: thandekaImg,
-  },
-  {
-    name: "Tatenda Mhokore",
-    role: "Projects Development & Evaluation",
-    bio: "Designing, implementing, and evaluating innovative STEM programs. Passionate about empowering youth with hands-on learning experiences.",
-    image: tatendaImg,
-  },
+ 
+ 
+ 
 ];
 
 const Team = () => {
