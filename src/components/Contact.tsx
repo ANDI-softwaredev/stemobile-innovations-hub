@@ -13,6 +13,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import ScrollReveal from "./ScrollReveal";
 import { supabase } from "@/integrations/supabase/client";
+import MeetingBookingDialog from "./MeetingBookingDialog";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -122,10 +123,12 @@ const Contact = () => {
 
             {/* Quick Actions */}
             <div className="flex flex-wrap gap-3">
-              <Button variant="outline" size="lg">
-                <Calendar className="w-5 h-5" />
-                Book a Meeting
-              </Button>
+              <MeetingBookingDialog>
+                <Button variant="outline" size="lg">
+                  <Calendar className="w-5 h-5" />
+                  Book a Meeting
+                </Button>
+              </MeetingBookingDialog>
               <Button variant="outline" size="lg">
                 Download Company Profile
               </Button>
