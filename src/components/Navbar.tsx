@@ -52,9 +52,11 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="outline" size="sm">
-              Partner With Us
-            </Button>
+            <a href="#contact">
+              <Button variant="outline" size="sm">
+                Partner With Us
+              </Button>
+            </a>
             <Button variant="secondary" size="sm">
               Donate Now
             </Button>
@@ -85,9 +87,11 @@ const Navbar = () => {
               </a>
             ))}
             <div className="flex flex-col gap-3 pt-4 border-t border-border">
-              <Button variant="outline" className="w-full">
-                Partner With Us
-              </Button>
+              <a href="#contact" onClick={() => setIsOpen(false)}>
+                <Button variant="outline" className="w-full">
+                  Partner With Us
+                </Button>
+              </a>
               <Button variant="secondary" className="w-full">
                 Donate Now
               </Button>
