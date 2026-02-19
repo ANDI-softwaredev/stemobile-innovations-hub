@@ -122,7 +122,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "STEMobile <onboarding@resend.dev>",
-        to: ["hautecodeuse@gmail.com"],
+        to: ["stemobilesolutions@gmail.com"],
         subject: subject,
         html: htmlContent,
       }),
