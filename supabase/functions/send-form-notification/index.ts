@@ -42,7 +42,18 @@ interface InnovatorFormData {
   howDidYouHear?: string;
 }
 
-type FormData = ContactFormData | BookingFormData | InnovatorFormData;
+interface MeetingFormData {
+  type: "meeting";
+  name: string;
+  email: string;
+  organization?: string;
+  preferredDate: string;
+  preferredTime: string;
+  meetingType: string;
+  message?: string;
+}
+
+type FormData = ContactFormData | BookingFormData | InnovatorFormData | MeetingFormData;
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -110,6 +121,18 @@ const handler = async (req: Request): Promise<Response> => {
         <p>${formData.innovationDescription}</p>
         
         ${formData.howDidYouHear ? `<p><strong>How they heard about us:</strong> ${formData.howDidYouHear}</p>` : ""}
+      `;
+    } else if (formData.type === "meeting") {
+      subject = `New Meeting Request from ${formData.name}`;
+      htmlContent = `
+        <h2>New Meeting Request</h2>
+        <p><strong>Name:</strong> ${formData.name}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        ${formData.organization ? `<p><strong>Organization:</strong> ${formData.organization}</p>` : ""}
+        <p><strong>Meeting Type:</strong> ${formData.meetingType}</p>
+        <p><strong>Preferred Date:</strong> ${formData.preferredDate}</p>
+        <p><strong>Preferred Time:</strong> ${formData.preferredTime}</p>
+        ${formData.message ? `<h3>Additional Notes:</h3><p>${formData.message}</p>` : ""}
       `;
     }
 
