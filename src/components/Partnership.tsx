@@ -76,13 +76,17 @@ const Partnership = () => {
 
         {/* CTA */}
         <ScrollReveal className="flex flex-wrap justify-center gap-4" delay={400}>
-          <Button variant="default" size="lg">
-            Partner With Us
-            <ArrowRight className="w-5 h-5" />
-          </Button>
-          <Button variant="outline" size="lg">
-            Request a Proposal
-          </Button>
+          <a href="#contact">
+            <Button variant="default" size="lg">
+              Partner With Us
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+          </a>
+          <a href="#contact">
+            <Button variant="outline" size="lg">
+              Request a Proposal
+            </Button>
+          </a>
         </ScrollReveal>
       </div>
     </section>

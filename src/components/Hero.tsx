@@ -53,11 +53,11 @@ const Hero = () => {
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
-            <Link to="/#programs">
+            <a href="#programs">
               <Button variant="hero-outline" size="xl">
                 Book a School Program
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Stats */}
